@@ -9,3 +9,5 @@ data/*.txt
 __pycache__/
 *.py[cod]
 *venv/
+data/*.jsonl
+data/raw_scripts/
