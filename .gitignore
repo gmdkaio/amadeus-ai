@@ -11,3 +11,11 @@ __pycache__/
 *venv/
 data/*.jsonl
 data/raw_scripts/
+
+# Training and Data Caches
+data/
+models/
+outputs/
+unsloth_compiled_cache/
+amadeus-ai/
+.venv/

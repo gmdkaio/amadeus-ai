@@ -40,6 +40,7 @@ def build_dataset():
                 
                 # Strip out engine tags like [%p], [%e], etc.
                 dialogue = re.sub(r'\[%.*?\]', '', dialogue)
+                dialogue = re.sub(r'\[color.*?\]', '', dialogue)
                 
                 # Remove the quotes that wrap the dialogue
                 if dialogue.startswith('“') and dialogue.endswith('”'):
