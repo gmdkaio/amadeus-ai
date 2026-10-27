@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "amadeus-ai"
 version = "0.1.0"
-description = "Steins;Gate Amadeus AI - Kurisu Makise LLM and Voice clone"
+description = "QLoRA persona fine-tune of Qwen 2.5 with local inference and voice synthesis"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    # NLP & LLM Training (Phase 1 & 2)
+    # LLM inference and training
     "torch",
     "transformers",
     "unsloth",
@@ -19,18 +19,16 @@ dependencies = [
     "datasets>=4.4",
     "dill>=0.4.1",
     "multiprocess>=0.70.19",
-    
-    # Audio Processing & Voice Cloning (Phase 3 Preview)
+
+    # Voice (GPT-SoVITS client) and audio processing
+    "requests",
     "soundfile",
     "librosa",
-    "numba"
+    "numba",
 ]
 
 [project.scripts]
-# Custom terminal commands!
-amadeus-chat = "tools.training.test_inference:test_kurisu"
-amadeus-train = "tools.training.train_lora:train_amadeus"
-amadeus-format = "tools.extraction.format_dataset:build_dataset"
+amadeus = "amadeus.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["tools*"]
+where = ["src"]

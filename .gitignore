@@ -1,49 +1,20 @@
-# Ignore raw data and datasets
-data/raw_audio/
-data/raw_scripts/
-data/*.json
-data/*.wav
-data/*.txt
-
-# Ignore Python cache
+# Python
 __pycache__/
 *.py[cod]
-*venv/
-data/*.jsonl
-data/raw_scripts/
-
-# Training and Data Caches
-data/
-models/
-outputs/
-unsloth_compiled_cache/
-amadeus-ai/
+*.egg-info/
 .venv/
-# Ignore raw data and datasets
-data/raw_audio/
-data/raw_scripts/
-data/*.json
-data/*.wav
-data/*.txt
 
-# Ignore Python cache
-__pycache__/
-*.py[cod]
-*venv/
-data/*.jsonl
-data/raw_scripts/
-
-# Training and Data Caches
-data/
-models/
-outputs/
+# Extracted game data, models and training output (never commit game assets)
+/data
+/models
+/outputs
 unsloth_compiled_cache/
-amadeus-ai/
-.venv/
+
+# Third party
 GPT-SoVITS/
-GPT-SoVITS/
-data/
-models/
-outputs/
-.venv/
-unsloth_compiled_cache/
+
+# Stray audio
+/*.wav
+
+# Internal docs (roadmap, notes)
+docs/

@@ -2,11 +2,12 @@ import os
 import subprocess
 import glob
 
+from amadeus import paths
+
 def prepare_voice_dataset():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    audio_dir = os.path.join(base_dir, 'data', 'raw_audio')
-    output_wav = os.path.join(base_dir, 'data', 'kurisu_reference.wav')
-    list_file = os.path.join(base_dir, 'data', 'audio_list.txt')
+    audio_dir = str(paths.RAW_AUDIO_DIR)
+    output_wav = str(paths.DATA_DIR / 'kurisu_reference.wav')
+    list_file = str(paths.DATA_DIR / 'audio_list.txt')
     
     ogg_files = sorted(glob.glob(os.path.join(audio_dir, 'CRS_*.OGG')))
     selected_files = ogg_files[:300]

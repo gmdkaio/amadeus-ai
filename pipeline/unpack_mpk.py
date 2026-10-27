@@ -2,9 +2,12 @@ import os
 import struct
 import subprocess
 
+from amadeus import paths
+
 def extract_kurisu_voices():
-    mpk_path = "/home/kaio/.local/share/Steam/steamapps/common/STEINS;GATE/USRDIR/voice.mpk"
-    out_dir = "/home/kaio/amadeus-ai/data/raw_audio"
+    mpk_path = paths.STEAM_COMMON / "STEINS;GATE" / "USRDIR" / "voice.mpk"
+    out_dir = str(paths.RAW_AUDIO_DIR)
+    os.makedirs(out_dir, exist_ok=True)
     
     if not os.path.exists(mpk_path):
         print(f"Error: Could not find {mpk_path}")

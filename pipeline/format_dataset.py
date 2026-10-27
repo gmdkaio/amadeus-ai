@@ -2,10 +2,11 @@ import os
 import json
 import re
 
+from amadeus import paths
+
 def build_dataset():
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    input_script = os.path.join(base_dir, 'data', 'raw_script.txt')
-    output_file = os.path.join(base_dir, 'data', 'kurisu_finetune.jsonl')
+    input_script = paths.DATA_DIR / 'raw_script.txt'
+    output_file = paths.DATA_DIR / 'kurisu_finetune.jsonl'
     
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 

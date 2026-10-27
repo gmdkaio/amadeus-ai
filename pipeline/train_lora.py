@@ -19,10 +19,11 @@ from trl import SFTTrainer
 from transformers import TrainingArguments
 import torch
 
+from amadeus import paths
+
 def train_amadeus():
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    dataset_path = os.path.join(base_dir, 'data', 'kurisu_finetune.jsonl')
-    output_dir = os.path.join(base_dir, 'models', 'amadeus-kurisu-lora')
+    dataset_path = str(paths.DATA_DIR / 'kurisu_finetune.jsonl')
+    output_dir = str(paths.LORA_DIR)
 
     print("Loading base model (Qwen 2.5 7B)...")
     model, tokenizer = FastLanguageModel.from_pretrained(
@@ -77,7 +78,7 @@ def train_amadeus():
             weight_decay = 0.01,
             lr_scheduler_type = "linear",
             seed = 3435,
-            output_dir = "outputs",
+            output_dir = str(paths.CHECKPOINTS_DIR),
         ),
     )
 
